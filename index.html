@@ -1,19 +1,101 @@
-<header>
-   <h1>Real-Time HTML/CSS Editor</h1>
-   <h2>Put something between the tags or replace them altogether...</h2>
-</header>
-<div class="container grid">
-   <form>
-      <h3>HTML</h3>
-      <textarea id="html" class="edit"><h1></h1></textarea>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Los Canelos Munchies — Register</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500&display=swap" rel="stylesheet" />
+</head>
+<body>
 
-      <h3>CSS</h3>
-      <textarea id="css" class="edit">h1 {
+  <!-- ── Header ─────────────────────────────────────────────── -->
+  <div class="header">
+    <div class="header-brand">
+      <img
+        class="header-logo"
+        src="https://i.ibb.co/vxHrGVKL/los-canelos-2.png"
+        alt="Los Canelos Munchies"
+        onerror="this.style.display='none';document.getElementById('headerFallback').style.display='block';"
+      />
+      <div class="header-fallback" id="headerFallback">
+        <span class="header-label">Register</span>
+        <span class="header-title">LOS CANELOS MUNCHIES</span>
+      </div>
+    </div>
+    <span class="header-time" id="clock"></span>
+  </div>
 
-}</textarea>
-   </form>
-</div>
+  <!-- ── Restored session banner ───────────────────────────── -->
+  <div class="saved-banner" id="savedBanner" style="display:none;">
+    <span>💾 Session restored from last visit</span>
+    <button class="banner-dismiss" id="bannerDismiss">✕</button>
+  </div>
 
-<div class="output grid">
-   <iframe></iframe>
-</div>
+  <!-- ── Items ─────────────────────────────────────────────── -->
+  <div class="items-list" id="itemsList">
+    <!-- Injected by JS -->
+  </div>
+
+  <!-- ── Order Total ───────────────────────────────────────── -->
+  <div class="total-box">
+    <div class="total-row">
+      <span class="total-label">ORDER TOTAL</span>
+      <span class="total-amount" id="totalAmount">$0.00</span>
+    </div>
+
+    <!-- Payment type toggle -->
+    <div class="pay-toggle">
+      <button class="pay-btn active" id="btnCash">CASH</button>
+      <button class="pay-btn"       id="btnCredit">CREDIT</button>
+    </div>
+
+    <!-- Cash tendered (cash only) -->
+    <div class="cash-section" id="cashSection">
+      <div class="section-label">CASH TENDERED</div>
+      <div class="bill-row">
+        <button class="bill-btn" data-val="1">$1</button>
+        <button class="bill-btn" data-val="5">$5</button>
+        <button class="bill-btn" data-val="10">$10</button>
+        <button class="bill-btn" data-val="20">$20</button>
+        <button class="bill-btn" data-val="50">$50</button>
+        <button class="bill-btn" data-val="100">$100</button>
+        <input type="number" class="bill-custom" id="tenderedInput" placeholder="custom" min="0" step="0.01" />
+      </div>
+      <div class="change-box" id="changeBox" style="display:none;">
+        <span class="change-label" id="changeLabel">CHANGE DUE</span>
+        <span class="change-amount" id="changeAmount">$0.00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Action Buttons ────────────────────────────────────── -->
+  <div class="action-grid">
+    <button class="action-btn btn-clear"    id="btnClear">CLEAR</button>
+    <button class="action-btn btn-complete" id="btnComplete" disabled>COMPLETE</button>
+    <button class="action-btn btn-receipt"  id="btnReceipt"  disabled>RECEIPT LIST</button>
+    <button class="action-btn btn-summary"  id="btnSummary"  disabled>SUMMARY</button>
+  </div>
+
+  <!-- ── Orders count badge ─────────────────────────────────── -->
+  <div class="order-badge" id="orderBadge" style="display:none;"></div>
+
+  <!-- ── PIN Modal ─────────────────────────────────────────── -->
+  <div class="modal-overlay" id="pinOverlay" style="display:none;">
+    <div class="modal-box">
+      <div class="modal-eyebrow">AUTHORIZATION</div>
+      <div class="modal-title">Enter Manager PIN</div>
+      <input type="password" class="pin-input" id="pinInput" maxlength="4" autocomplete="off" />
+      <div class="pin-error" id="pinError" style="display:none;">Incorrect PIN</div>
+      <div class="modal-actions">
+        <button class="modal-cancel"  id="pinCancel">Cancel</button>
+        <button class="modal-confirm" id="pinConfirm">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
