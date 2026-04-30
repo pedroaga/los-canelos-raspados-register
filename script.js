@@ -158,7 +158,7 @@ function renderTotal() {
     changeBox.style.display = "flex";
     if (diff >= 0) {
       changeBox.classList.remove("short");
-      changeLabel.textContent  = "CHANGE DUE";
+      changeLabel.textContent  = "CUSTOMER CHANGE";
       changeAmount.textContent = fmt(diff);
     } else {
       changeBox.classList.add("short");
