@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,435 +12,594 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-/* ── Reset ─────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root {
-  /* Brand */
-  --red:         #cc1616;
-  --red-dark:    #a81010;
-  --red-light:   #e52a2a;
-  --red-pale:    #fff0f0;
-  --red-border:  rgba(204,22,22,0.25);
-
-  /* Light surfaces */
-  --bg:          #f2f2f2;
-  --surface:     #ffffff;
-  --surface-2:   #f8f8f8;
-  --card-border: rgba(0,0,0,0.08);
-  --card-on-bg:  #fff5f5;
-  --card-on-bdr: rgba(204,22,22,0.3);
-
-  /* Text */
-  --text:        #111111;
-  --text-mid:    #444444;
-  --text-muted:  #888888;
-  --text-dim:    #aaaaaa;
-
-  /* Semantic */
-  --green:       #0a9e5c;
-  --green-bg:    rgba(10,158,92,0.08);
-  --green-bdr:   rgba(10,158,92,0.25);
-  --short-bg:    rgba(204,22,22,0.07);
-
-  --font: 'DM Mono','Courier New',monospace;
+–red:         #cc1616;
+–red-dark:    #a81010;
+–red-light:   #e52a2a;
+–red-pale:    #fff0f0;
+–red-border:  rgba(204,22,22,0.25);
+–bg:          #f2f2f2;
+–surface:     #ffffff;
+–surface-2:   #f8f8f8;
+–card-border: rgba(0,0,0,0.08);
+–card-on-bg:  #fff5f5;
+–card-on-bdr: rgba(204,22,22,0.3);
+–text:        #111111;
+–text-mid:    #444444;
+–text-muted:  #888888;
+–text-dim:    #aaaaaa;
+–green:       #0a9e5c;
+–green-bg:    rgba(10,158,92,0.08);
+–green-bdr:   rgba(10,158,92,0.25);
+–short-bg:    rgba(204,22,22,0.07);
+–font: ‘DM Mono’,‘Courier New’,monospace;
 }
 
-html,body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--font);
-  min-height:100vh;
-  -webkit-font-smoothing:antialiased;
-  -webkit-tap-highlight-color:transparent;
+html,body {
+background:var(–bg); color:var(–text);
+font-family:var(–font); min-height:100vh;
+-webkit-font-smoothing:antialiased;
+-webkit-tap-highlight-color:transparent;
 }
-body{ max-width:480px; margin:0 auto; padding-bottom:60px; }
+body { max-width:480px; margin:0 auto; padding-bottom:60px; }
 
-/* ── Header — 3-column grid ─────────────────────────────── */
+/* ═══════════════════════════════════════
+HEADER
+═══════════════════════════════════════ */
 .header {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  padding: 10px 16px;
-  background: #fff;
-  border-bottom: 3px solid var(--red);
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+display: grid;
+grid-template-columns: 1fr auto 1fr;
+align-items: center;
+padding: 10px 16px;
+background: #fff;
+border-bottom: 3px solid var(–red);
+position: sticky; top: 0; z-index: 20;
+box-shadow: 0 1px 6px rgba(0,0,0,0.07);
 }
-.header-left {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  justify-self: start;
-}
-.header-label {
-  font-size: 9.5px;
-  letter-spacing: 2.5px;
-  color: var(--red);
-  text-transform: uppercase;
-  font-weight: 500;
-}
-.header-title {
-  font-size: 12.5px;
-  font-weight: 560;
-  color: #111;
-  letter-spacing: 0.2px;
-  line-height: 1.2;
-}
-.header-center { justify-self: center; }
-.header-logo {
-  height: 60px;
-  width: auto;
-  max-width: 160px;
-  object-fit: contain;
-  display: block;
-}
-.header-right {
-  justify-self: end;
-  font-size: 12px;
-  color: var(--text-muted);
-  white-space: nowrap;
-}
+.header-left { display:flex; flex-direction:column; gap:1px; justify-self:start; }
+.header-label { font-size:8px; letter-spacing:2.5px; color:var(–red); text-transform:uppercase; font-weight:500; }
+.header-title { font-size:11px; font-weight:500; color:#111; letter-spacing:0.2px; line-height:1.2; }
+.header-center { justify-self:center; }
+.header-logo  { height:52px; width:auto; max-width:160px; object-fit:contain; display:block; }
+.header-right { justify-self:end; font-size:12px; color:var(–text-muted); white-space:nowrap; }
 
-/* ── Restore Banner ─────────────────────────────────────── */
+/* ═══════════════════════════════════════
+RESTORE BANNER
+═══════════════════════════════════════ */
 .saved-banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 12px 16px 0;
-  padding: 9px 14px;
-  background: rgba(10,158,92,0.07);
-  border: 1px solid rgba(10,158,92,0.3);
-  border-radius: 10px;
-  font-size: 11px;
-  color: var(--green);
+display:flex; align-items:center; justify-content:space-between;
+margin:12px 16px 0; padding:9px 14px;
+background:rgba(10,158,92,0.07); border:1px solid rgba(10,158,92,0.3);
+border-radius:10px; font-size:11px; color:var(–green);
 }
-.banner-dismiss {
-  background: none; border: none;
-  color: var(--green); cursor: pointer;
-  font-size: 14px; opacity: .5; padding: 0 2px;
-}
-.banner-dismiss:hover { opacity: 1; }
+.banner-dismiss { background:none; border:none; color:var(–green); cursor:pointer; font-size:14px; opacity:.5; padding:0 2px; }
+.banner-dismiss:hover { opacity:1; }
 
-/* ── Items List ─────────────────────────────────────────── */
-.items-list { padding: 14px 16px 0; }
-
+/* ═══════════════════════════════════════
+ITEM CARDS (register view)
+═══════════════════════════════════════ */
+.items-list { padding:14px 16px 0; }
 .item-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px 14px;
-  margin-bottom: 10px;
-  border-radius: 14px;
-  border: 1px solid var(--card-border);
-  background: var(--surface);
-  transition: background .15s, border-color .15s, box-shadow .15s;
+display:flex; align-items:center; gap:14px;
+padding:12px 14px; margin-bottom:10px;
+border-radius:14px; border:1px solid var(–card-border);
+background:var(–surface);
+transition:background .15s,border-color .15s,box-shadow .15s;
 }
 .item-card.has-qty {
-  background: var(--card-on-bg);
-  border-color: var(--card-on-bdr);
-  box-shadow: 0 2px 10px rgba(204,22,22,0.08);
+background:var(–card-on-bg); border-color:var(–card-on-bdr);
+box-shadow:0 2px 10px rgba(204,22,22,0.08);
 }
-
-.item-img-wrap { position: relative; flex-shrink: 0; }
+.item-img-wrap { position:relative; flex-shrink:0; }
 .item-img {
-  width: 64px; height: 64px;
-  border-radius: 12px;
-  background: #f0f0f0;
-  border: 1px solid rgba(0,0,0,0.07);
-  overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
+width:64px; height:64px; border-radius:12px;
+background:#f0f0f0; border:1px solid rgba(0,0,0,0.07);
+overflow:hidden; display:flex; align-items:center; justify-content:center;
 }
-.item-img img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center; display: block;
-}
+.item-img img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
 .item-qty-badge {
-  position: absolute; top: -7px; right: -7px;
-  min-width: 24px; height: 24px; padding: 0 4px;
-  background: #000; color: #fff;
-  border-radius: 11px;
-  font-size: 11.5px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  border: 2px solid var(--bg);
-  font-family: var(--font);
+position:absolute; top:-7px; right:-7px;
+min-width:22px; height:22px; padding:0 4px;
+background:var(–red); color:#fff; border-radius:11px;
+font-size:11px; font-weight:700;
+display:flex; align-items:center; justify-content:center;
+border:2px solid var(–bg); font-family:var(–font);
 }
-
-.item-info { flex: 1; min-width: 0; }
-.item-name     { font-size: 14px; font-weight: 500; color: var(--text); }
-.item-price    { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
-.item-subtotal { font-size: 11px; color: var(--red); margin-top: 3px; font-weight: 500; }
-
-.item-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.item-info { flex:1; min-width:0; }
+.item-name     { font-size:14px; font-weight:500; color:var(–text); }
+.item-price    { font-size:11px; color:var(–text-muted); margin-top:3px; }
+.item-subtotal { font-size:11px; color:var(–red); margin-top:3px; font-weight:500; }
+.item-controls { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 .ctrl-btn {
-  width: 33px; height: 33px;
-  border-radius: 50%; border: none;
-  color: #fff; font-size: 20px; font-weight: 400;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font); line-height: 1;
-  transition: opacity .1s, transform .1s;
+width:33px; height:33px; border-radius:50%; border:none;
+color:#fff; font-size:20px; font-weight:400; cursor:pointer;
+display:flex; align-items:center; justify-content:center;
+font-family:var(–font); line-height:1;
+transition:opacity .1s,transform .1s;
 }
-.ctrl-btn:active { transform: scale(.88); opacity: .75; }
-.ctrl-btn.minus { background: #888; }
-.ctrl-btn.plus  { background: var(--red); }
-.ctrl-btn.plus:hover { background: var(--red-light); }
+.ctrl-btn:active { transform:scale(.88); opacity:.75; }
+.ctrl-btn.minus { background:#888; }
+.ctrl-btn.plus  { background:var(–red); }
+.ctrl-btn.plus:hover { background:var(–red-light); }
 
-/* ── Total Box ──────────────────────────────────────────── */
+/* ═══════════════════════════════════════
+TOTAL BOX
+═══════════════════════════════════════ */
 .total-box {
-  margin: 12px 16px 0;
-  background: var(--surface);
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  padding: 14px 18px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+margin:12px 16px 0;
+background:var(–surface); border:1px solid var(–card-border);
+border-radius:14px; padding:14px 18px;
+box-shadow:0 1px 4px rgba(0,0,0,0.05);
 }
-.total-row { display: flex; justify-content: space-between; align-items: center; }
-.total-label  { font-size: 10px; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; }
-.total-amount { font-size: 32px; font-weight: 500; color: var(--text); letter-spacing: 0.5px; }
+.total-row   { display:flex; justify-content:space-between; align-items:center; }
+.total-label { font-size:10px; letter-spacing:2px; color:var(–text-muted); text-transform:uppercase; }
+.total-amount{ font-size:32px; font-weight:500; color:var(–text); letter-spacing:0.5px; }
 
-.pay-toggle { display: flex; gap: 8px; margin-top: 12px; }
+.pay-toggle { display:flex; gap:8px; margin-top:12px; }
 .pay-btn {
-  flex: 1; padding: 8px 0; border-radius: 8px;
-  border: 1px solid var(--card-border);
-  cursor: pointer;
-  font-size: 11px; letter-spacing: 1.5px; font-weight: 500;
-  font-family: var(--font);
-  background: var(--surface-2); color: var(--text-muted);
-  transition: all .15s;
+flex:1; padding:8px 0; border-radius:8px;
+border:1px solid var(–card-border); cursor:pointer;
+font-size:11px; letter-spacing:1.5px; font-weight:500; font-family:var(–font);
+background:var(–surface-2); color:var(–text-muted); transition:all .15s;
 }
-.pay-btn.active { background: var(--red); border-color: var(--red-dark); color: #fff; }
-.pay-btn:not(.active):hover { border-color: #bbb; color: var(--text-mid); }
+.pay-btn.active { background:var(–red); border-color:var(–red-dark); color:#fff; }
+.pay-btn:not(.active):hover { border-color:#bbb; color:var(–text-mid); }
 
-.cash-section { margin-top: 14px; }
-.section-label { font-size: 10px; color: var(--text-dim); letter-spacing: 1.5px; margin-bottom: 8px; text-transform: uppercase; }
-
-.bill-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.cash-section { margin-top:14px; }
+.section-label { font-size:10px; color:var(–text-dim); letter-spacing:1.5px; margin-bottom:8px; text-transform:uppercase; }
+.bill-row { display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
 .bill-btn {
-  padding: 5px 10px; border-radius: 7px;
-  border: 1px solid var(--card-border);
-  background: var(--surface-2); color: var(--text-mid);
-  font-size: 12px; font-family: var(--font); cursor: pointer;
-  transition: all .12s;
+padding:5px 10px; border-radius:7px; border:1px solid var(–card-border);
+background:var(–surface-2); color:var(–text-mid);
+font-size:12px; font-family:var(–font); cursor:pointer; transition:all .12s;
 }
-.bill-btn:hover, .bill-btn.active {
-  border-color: var(--red); background: var(--red-pale); color: var(--red);
-}
+.bill-btn:hover,.bill-btn.active { border-color:var(–red); background:var(–red-pale); color:var(–red); }
 .bill-custom {
-  width: 76px; padding: 5px 8px; border-radius: 7px;
-  border: 1px solid var(--card-border);
-  background: var(--surface-2); color: var(--text);
-  font-size: 12px; font-family: var(--font); outline: none;
-  transition: border-color .12s;
+width:76px; padding:5px 8px; border-radius:7px;
+border:1px solid var(–card-border); background:var(–surface-2); color:var(–text);
+font-size:12px; font-family:var(–font); outline:none; transition:border-color .12s;
 }
-.bill-custom:focus { border-color: var(--red); }
-.bill-custom::placeholder { color: #ccc; }
-
+.bill-custom:focus { border-color:var(–red); }
+.bill-custom::placeholder { color:#ccc; }
 .change-box {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-top: 10px; padding: 10px 14px; border-radius: 9px;
-  background: var(--green-bg); border: 1px solid var(--green-bdr);
+display:flex; justify-content:space-between; align-items:center;
+margin-top:10px; padding:10px 14px; border-radius:9px;
+background:var(–green-bg); border:1px solid var(–green-bdr);
 }
-.change-box.short { background: var(--short-bg); border-color: var(--red-border); }
-.change-label  { font-size: 11px; color: var(--text-muted); letter-spacing: .5px; }
-.change-amount { font-size: 15px; font-weight: 700; color: var(--green); }
-.change-box.short .change-amount { color: var(--red); }
+.change-box.short { background:var(–short-bg); border-color:var(–red-border); }
+.change-label  { font-size:11px; color:var(–text-muted); letter-spacing:.5px; }
+.change-amount { font-size:15px; font-weight:700; color:var(–green); }
+.change-box.short .change-amount { color:var(–red); }
 
-/* ── Action Buttons ─────────────────────────────────────── */
+/* ═══════════════════════════════════════
+ACTION BUTTONS
+═══════════════════════════════════════ */
 .action-grid {
-  padding: 12px 16px 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 9px;
+padding:12px 16px 0;
+display:grid; grid-template-columns:1fr 1fr; gap:9px;
 }
 .action-btn {
-  padding: 15px 0;
-  border-radius: 12px;
-  border: none;
-  font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
-  font-family: var(--font); cursor: pointer;
-  transition: filter .15s, transform .1s;
-  text-transform: uppercase;
-  color: #fff;
+padding:15px 0; border-radius:12px; border:none;
+font-size:11px; font-weight:500; letter-spacing:1.5px;
+font-family:var(–font); cursor:pointer;
+transition:filter .15s,transform .1s;
+text-transform:uppercase; color:#fff;
 }
-.action-btn:active:not(:disabled) { transform: scale(.97); }
-.action-btn:hover:not(:disabled)  { filter: brightness(1.08); }
+.action-btn:active:not(:disabled) { transform:scale(.97); }
+.action-btn:hover:not(:disabled)  { filter:brightness(1.08); }
 .action-btn:disabled {
-  background: #e0e0e0 !important;
-  color: #b0b0b0 !important;
-  cursor: not-allowed;
-  filter: none !important;
+background:#e0e0e0 !important; color:#b0b0b0 !important;
+cursor:not-allowed; filter:none !important;
 }
-.btn-clear    { background: #555555; }
-.btn-complete { background: var(--red); }
-.btn-receipt  { background: #1a4f9e; }
-.btn-summary  { background: #1a7a42; }
+.btn-clear    { background:#555555; }
+.btn-complete { background:var(–red); }
+.btn-receipt  { background:#1a4f9e; }
+.btn-summary  { background:#1a7a42; }
 
-/* ── PDF generating overlay ─────────────────────────────── */
+/* ═══════════════════════════════════════
+SESSION TOTAL BADGE  (prominent)
+═══════════════════════════════════════ */
+.session-bar {
+margin:14px 16px 0;
+background:#fff;
+border:2px solid var(–red);
+border-radius:14px;
+padding:14px 18px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+box-shadow:0 2px 8px rgba(204,22,22,0.1);
+}
+.session-bar-left { display:flex; flex-direction:column; gap:2px; }
+.session-bar-label { font-size:9px; letter-spacing:2px; color:var(–red); text-transform:uppercase; font-weight:500; }
+.session-bar-sub   { font-size:11px; color:var(–text-muted); }
+.session-bar-total { font-size:28px; font-weight:500; color:var(–text); letter-spacing:0.5px; }
+
+/* ═══════════════════════════════════════
+EDIT ORDERS PANEL  (slide-in from right)
+═══════════════════════════════════════ */
+.edit-panel {
+position: fixed;
+inset: 0;
+background: var(–bg);
+z-index: 50;
+display: flex;
+flex-direction: column;
+transform: translateX(100%);
+transition: transform .3s cubic-bezier(.4,0,.2,1);
+max-width: 480px;
+left: 50%;
+translate: -50% 0;
+}
+.edit-panel.open { transform: translateX(0); }
+
+.edit-panel-header {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 14px 16px;
+background: #fff;
+border-bottom: 3px solid var(–red);
+position: sticky; top: 0; z-index: 10;
+box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+flex-shrink: 0;
+}
+.edit-back-btn {
+display: flex; align-items: center; gap: 6px;
+background: var(–surface-2); border: 1px solid var(–card-border);
+border-radius: 9px; padding: 7px 12px;
+font-size: 12px; font-family: var(–font); color: var(–text-mid);
+cursor: pointer; transition: all .12s; white-space: nowrap;
+flex-shrink: 0;
+}
+.edit-back-btn:hover { border-color:#bbb; color:var(–text); }
+.edit-panel-title {
+font-size: 13px; font-weight: 500; color: var(–text); letter-spacing: 0.5px;
+flex: 1; text-align: center;
+}
+.edit-panel-count {
+font-size: 11px; color: var(–text-muted); white-space: nowrap; flex-shrink: 0;
+}
+
+/* Scrollable order list */
+.edit-orders-list {
+flex: 1;
+overflow-y: auto;
+padding: 14px 16px;
+}
+
+.edit-empty {
+text-align: center; margin-top: 60px;
+color: var(–text-dim); font-size: 13px; line-height: 1.8;
+}
+
+/* Individual order card */
+.order-card {
+background: var(–surface);
+border: 1px solid var(–card-border);
+border-radius: 14px;
+margin-bottom: 12px;
+overflow: hidden;
+box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.order-card-header {
+display: flex; align-items: center; justify-content: space-between;
+padding: 11px 14px 11px 14px;
+border-bottom: 1px solid var(–card-border);
+background: var(–surface-2);
+}
+.order-num  { font-size:11px; font-weight:500; color:var(–red); letter-spacing:1px; }
+.order-time { font-size:11px; color:var(–text-muted); }
+.order-pay-tag {
+font-size:9px; letter-spacing:1.5px; font-weight:500; text-transform:uppercase;
+padding:3px 8px; border-radius:20px;
+}
+.order-pay-tag.cash   { background:rgba(10,158,92,0.1); color:var(–green); }
+.order-pay-tag.credit { background:rgba(26,79,158,0.1); color:#1a4f9e; }
+.order-del-btn {
+background: none; border: none; cursor: pointer;
+color: var(–text-dim); font-size: 18px; padding: 0 0 0 8px;
+line-height: 1; transition: color .12s;
+flex-shrink: 0;
+}
+.order-del-btn:hover { color: var(–red); }
+
+/* Order lines */
+.order-lines { padding: 10px 14px; }
+.order-line {
+display: flex; align-items: center; justify-content: space-between;
+padding: 6px 0;
+border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.order-line:last-child { border-bottom: none; }
+.order-line-name { font-size:13px; color:var(–text); flex:1; }
+.order-line-qty-ctrl {
+display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+}
+.order-line-qty {
+font-size: 13px; font-weight: 500; color: var(–text); min-width: 20px; text-align: center;
+}
+.oc-btn {
+width:26px; height:26px; border-radius:50%; border:none;
+color:#fff; font-size:15px; font-weight:400; cursor:pointer;
+display:flex; align-items:center; justify-content:center;
+font-family:var(–font); line-height:1;
+transition:opacity .1s,transform .1s; flex-shrink:0;
+}
+.oc-btn:active { transform:scale(.85); }
+.oc-btn.oc-minus { background:#bbb; }
+.oc-btn.oc-plus  { background:var(–red); }
+.order-line-sub  { font-size:12px; color:var(–text-muted); min-width:46px; text-align:right; flex-shrink:0; }
+
+.order-card-footer {
+display: flex; justify-content: space-between; align-items: center;
+padding: 9px 14px;
+border-top: 1px solid var(–card-border);
+background: var(–surface-2);
+}
+.order-card-total-label { font-size:10px; color:var(–text-muted); letter-spacing:1px; text-transform:uppercase; }
+.order-card-total-val   { font-size:15px; font-weight:500; color:var(–text); }
+
+/* ── Edit panel sticky footer ── */
+.edit-footer {
+flex-shrink: 0;
+background: #fff;
+border-top: 2px solid var(–red);
+padding: 16px 20px;
+box-shadow: 0 -2px 10px rgba(0,0,0,0.07);
+}
+.edit-footer-row {
+display: flex; justify-content: space-between; align-items: center;
+}
+.edit-footer-label { font-size:10px; letter-spacing:2px; color:var(–red); text-transform:uppercase; }
+.edit-footer-total { font-size:30px; font-weight:500; color:var(–text); letter-spacing:0.5px; }
+.edit-footer-sub   { font-size:11px; color:var(–text-muted); margin-top:2px; }
+
+/* ═══════════════════════════════════════
+DELETE CONFIRM MODAL
+═══════════════════════════════════════ */
+.confirm-overlay {
+position: fixed; inset: 0;
+background: rgba(0,0,0,0.5);
+display: flex; align-items: center; justify-content: center;
+z-index: 200;
+}
+.confirm-box {
+background: #fff; border-radius: 18px;
+padding: 28px 24px; width: 300px; text-align: center;
+box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+.confirm-icon  { font-size: 32px; margin-bottom: 10px; }
+.confirm-title { font-size: 15px; font-weight: 500; color: var(–text); margin-bottom: 8px; }
+.confirm-sub   { font-size: 12px; color: var(–text-muted); line-height: 1.6; margin-bottom: 20px; }
+.confirm-btns  { display: flex; gap: 10px; }
+.confirm-cancel {
+flex:1; padding:12px; border-radius:10px;
+background:var(–surface-2); border:1px solid var(–card-border);
+color:var(–text-muted); cursor:pointer;
+font-size:13px; font-family:var(–font); transition:all .12s;
+}
+.confirm-cancel:hover { border-color:#bbb; color:var(–text); }
+.confirm-delete {
+flex:1; padding:12px; border-radius:10px;
+background:var(–red); border:none; color:#fff; cursor:pointer;
+font-size:13px; font-weight:500; font-family:var(–font); transition:background .12s;
+}
+.confirm-delete:hover { background:var(–red-light); }
+
+/* ═══════════════════════════════════════
+PDF / SPINNER OVERLAY
+═══════════════════════════════════════ */
 .pdf-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.45);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  z-index: 200; gap: 14px;
+position:fixed; inset:0; background:rgba(0,0,0,0.45);
+display:flex; flex-direction:column; align-items:center; justify-content:center;
+z-index:300; gap:14px;
 }
 .pdf-spinner {
-  width: 36px; height: 36px;
-  border: 3px solid rgba(255,255,255,0.3);
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: spin .7s linear infinite;
+width:36px; height:36px;
+border:3px solid rgba(255,255,255,0.3); border-top-color:#fff;
+border-radius:50%; animation:spin .7s linear infinite;
 }
-.pdf-overlay-text { color: #fff; font-size: 13px; letter-spacing: 1px; font-family: var(--font); }
-@keyframes spin { to { transform: rotate(360deg); } }
+.pdf-overlay-text { color:#fff; font-size:13px; letter-spacing:1px; font-family:var(–font); }
+@keyframes spin { to{transform:rotate(360deg)} }
 
-/* ── Order Badge ────────────────────────────────────────── */
-.order-badge {
-  text-align: center; margin-top: 14px;
-  font-size: 11px; color: var(--text-dim); letter-spacing: .3px;
-}
-
-/* ── PIN Modal ──────────────────────────────────────────── */
+/* ═══════════════════════════════════════
+PIN MODAL
+═══════════════════════════════════════ */
 .modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.5);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 100;
+position:fixed; inset:0; background:rgba(0,0,0,0.5);
+display:flex; align-items:center; justify-content:center; z-index:100;
 }
 .modal-box {
-  background: #fff;
-  border: 1px solid var(--card-border);
-  border-radius: 20px;
-  padding: 32px 28px; width: 300px; text-align: center;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+background:#fff; border:1px solid var(–card-border);
+border-radius:20px; padding:32px 28px; width:300px; text-align:center;
+box-shadow:0 8px 32px rgba(0,0,0,0.15);
 }
-.modal-eyebrow { font-size: 10px; letter-spacing: 3px; color: var(--red); margin-bottom: 8px; text-transform: uppercase; }
-.modal-title   { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 20px; }
+.modal-eyebrow { font-size:10px; letter-spacing:3px; color:var(–red); margin-bottom:8px; text-transform:uppercase; }
+.modal-title   { font-size:15px; font-weight:500; color:var(–text); margin-bottom:20px; }
 .pin-input {
-  width: 100%; padding: 12px; text-align: center;
-  font-size: 22px; letter-spacing: 10px;
-  background: var(--surface-2);
-  border: 1px solid var(--card-border);
-  border-radius: 10px; color: var(--text); outline: none;
-  font-family: var(--font); transition: border-color .15s;
+width:100%; padding:12px; text-align:center;
+font-size:22px; letter-spacing:10px;
+background:var(–surface-2); border:1px solid var(–card-border);
+border-radius:10px; color:var(–text); outline:none;
+font-family:var(–font); transition:border-color .15s;
 }
-.pin-input:focus { border-color: var(--red); box-shadow: 0 0 0 2px rgba(204,22,22,.15); }
-.pin-input.error { border-color: var(--red); }
-.pin-error { color: var(--red); font-size: 12px; margin-top: 8px; }
-.modal-actions { display: flex; gap: 10px; margin-top: 18px; }
+.pin-input:focus { border-color:var(–red); box-shadow:0 0 0 2px rgba(204,22,22,.15); }
+.pin-input.error { border-color:var(–red); }
+.pin-error { color:var(–red); font-size:12px; margin-top:8px; }
+.modal-actions { display:flex; gap:10px; margin-top:18px; }
 .modal-cancel {
-  flex: 1; padding: 12px; border-radius: 10px;
-  background: var(--surface-2); border: 1px solid var(--card-border);
-  color: var(--text-muted); cursor: pointer;
-  font-size: 13px; font-family: var(--font); transition: all .12s;
+flex:1; padding:12px; border-radius:10px;
+background:var(–surface-2); border:1px solid var(–card-border);
+color:var(–text-muted); cursor:pointer;
+font-size:13px; font-family:var(–font); transition:all .12s;
 }
-.modal-cancel:hover { border-color: #bbb; color: var(--text); }
+.modal-cancel:hover { border-color:#bbb; color:var(–text); }
 .modal-confirm {
-  flex: 1; padding: 12px; border-radius: 10px;
-  background: var(--red); border: none; color: #fff; cursor: pointer;
-  font-size: 13px; font-weight: 500;
-  font-family: var(--font); transition: background .12s;
+flex:1; padding:12px; border-radius:10px;
+background:var(–red); border:none; color:#fff; cursor:pointer;
+font-size:13px; font-weight:500; font-family:var(–font); transition:background .12s;
 }
-.modal-confirm:hover { background: var(--red-light); }
+.modal-confirm:hover { background:var(–red-light); }
 
-/* ── Scrollbar ──────────────────────────────────────────── */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #ddd; border-radius: 4px; }
-  </style>
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:#ddd; border-radius:4px; }
+</style>
+
 </head>
 <body>
 
-  <!-- Header -->
-  <div class="header">
-    <div class="header-left">
-      <span class="header-label">Register</span>
-      <span class="header-title">LOS CANELOS<br>MUNCHIES</span>
+<!-- ═══════════════════════════════════
+     MAIN REGISTER VIEW
+════════════════════════════════════ -->
+
+<!-- Header -->
+
+<div class="header">
+  <div class="header-left">
+    <span class="header-label">Register</span>
+    <span class="header-title">LOS CANELOS<br>MUNCHIES</span>
+  </div>
+  <div class="header-center">
+    <img class="header-logo"
+         src="https://i.ibb.co/vxHrGVKL/los-canelos-2.png"
+         alt="Los Canelos Munchies"
+         onerror="this.style.display='none';" />
+  </div>
+  <div class="header-right" id="clock"></div>
+</div>
+
+<!-- Restore banner -->
+
+<div class="saved-banner" id="savedBanner" style="display:none;">
+  <span>&#128190; Session restored from last visit</span>
+  <button class="banner-dismiss" id="bannerDismiss">&#x2715;</button>
+</div>
+
+<!-- Items -->
+
+<div class="items-list" id="itemsList"></div>
+
+<!-- Current order total -->
+
+<div class="total-box">
+  <div class="total-row">
+    <span class="total-label">ORDER TOTAL</span>
+    <span class="total-amount" id="totalAmount">$0.00</span>
+  </div>
+  <div class="pay-toggle">
+    <button class="pay-btn active" id="btnCash">CASH</button>
+    <button class="pay-btn"        id="btnCredit">CREDIT (Zelle)</button>
+  </div>
+  <div class="cash-section" id="cashSection">
+    <div class="section-label" style="margin-top:14px;">CASH GIVEN</div>
+    <div class="bill-row">
+      <button class="bill-btn" data-val="1">$1</button>
+      <button class="bill-btn" data-val="5">$5</button>
+      <button class="bill-btn" data-val="10">$10</button>
+      <button class="bill-btn" data-val="20">$20</button>
+      <button class="bill-btn" data-val="50">$50</button>
+      <button class="bill-btn" data-val="100">$100</button>
+      <input type="number" class="bill-custom" id="tenderedInput" placeholder="custom" min="0" step="0.01" />
     </div>
-    <div class="header-center">
-      <img class="header-logo"
-           src="https://i.ibb.co/vxHrGVKL/los-canelos-2.png"
-           alt="Los Canelos Munchies"
-           onerror="this.style.display='none';" />
+    <div class="change-box" id="changeBox" style="display:none;">
+      <span class="change-label" id="changeLabel">CHANGE DUE</span>
+      <span class="change-amount" id="changeAmount">$0.00</span>
     </div>
-    <div class="header-right" id="clock"></div>
+  </div>
+</div>
+
+<!-- Action buttons -->
+
+<div class="action-grid">
+  <button class="action-btn btn-clear"    id="btnClear">CLEAR</button>
+  <button class="action-btn btn-complete" id="btnComplete" disabled>RECORD ORDER</button>
+  <button class="action-btn btn-receipt"  id="btnReceipt"  disabled>EDIT ORDERS</button>
+  <button class="action-btn btn-summary"  id="btnSummary"  disabled>SUMMARY</button>
+</div>
+
+<!-- Session total bar (prominent) -->
+
+<div class="session-bar" id="sessionBar" style="display:none;">
+  <div class="session-bar-left">
+    <span class="session-bar-label">Session Total</span>
+    <span class="session-bar-sub" id="sessionBarSub">0 orders</span>
+  </div>
+  <span class="session-bar-total" id="sessionBarTotal">$0.00</span>
+</div>
+
+<!-- ═══════════════════════════════════
+     EDIT ORDERS PANEL
+════════════════════════════════════ -->
+
+<div class="edit-panel" id="editPanel">
+  <div class="edit-panel-header">
+    <button class="edit-back-btn" id="editBackBtn">&#8592; Back to Register</button>
+    <span class="edit-panel-title">ORDER LIST</span>
+    <span class="edit-panel-count" id="editPanelCount"></span>
   </div>
 
-  <!-- Restore banner -->
-  <div class="saved-banner" id="savedBanner" style="display:none;">
-    <span>&#128190; Session restored from last visit</span>
-    <button class="banner-dismiss" id="bannerDismiss">&#x2715;</button>
-  </div>
+  <div class="edit-orders-list" id="editOrdersList"></div>
 
-  <!-- Items -->
-  <div class="items-list" id="itemsList"></div>
-
-  <!-- Total -->
-  <div class="total-box">
-    <div class="total-row">
-      <span class="total-label">ORDER TOTAL</span>
-      <span class="total-amount" id="totalAmount">$0.00</span>
-    </div>
-    <div class="pay-toggle">
-      <button class="pay-btn active" id="btnCash">CASH</button>
-      <button class="pay-btn"        id="btnCredit">CREDIT (Zelle)</button>
-    </div>
-    <div class="cash-section" id="cashSection">
-      <div class="section-label" style="margin-top:14px;">CASH GIVEN</div>
-      <div class="bill-row">
-        <button class="bill-btn" data-val="1">$1</button>
-        <button class="bill-btn" data-val="5">$5</button>
-        <button class="bill-btn" data-val="10">$10</button>
-        <button class="bill-btn" data-val="20">$20</button>
-        <button class="bill-btn" data-val="50">$50</button>
-        <button class="bill-btn" data-val="100">$100</button>
-        <input type="number" class="bill-custom" id="tenderedInput" placeholder="custom" min="0" step="0.01" />
+  <div class="edit-footer">
+    <div class="edit-footer-row">
+      <div>
+        <div class="edit-footer-label">Session Total</div>
+        <div class="edit-footer-sub" id="editFooterSub">0 orders</div>
       </div>
-      <div class="change-box" id="changeBox" style="display:none;">
-        <span class="change-label" id="changeLabel">CHANGE DUE</span>
-        <span class="change-amount" id="changeAmount">$0.00</span>
-      </div>
+      <span class="edit-footer-total" id="editFooterTotal">$0.00</span>
     </div>
   </div>
+</div>
 
-  <!-- Actions -->
-  <div class="action-grid">
-    <button class="action-btn btn-clear"    id="btnClear">CLEAR</button>
-    <button class="action-btn btn-complete" id="btnComplete" disabled>COMPLETE</button>
-    <button class="action-btn btn-receipt"  id="btnReceipt"  disabled>RECEIPT LIST</button>
-    <button class="action-btn btn-summary"  id="btnSummary"  disabled>SUMMARY</button>
-  </div>
+<!-- ═══════════════════════════════════
+     DELETE CONFIRM MODAL
+════════════════════════════════════ -->
 
-  <!-- Badge -->
-  <div class="order-badge" id="orderBadge" style="display:none;"></div>
-
-  <!-- PIN Modal -->
-  <div class="modal-overlay" id="pinOverlay" style="display:none;">
-    <div class="modal-box">
-      <div class="modal-eyebrow">AUTHORIZATION</div>
-      <div class="modal-title">Enter Manager PIN</div>
-      <input type="password" class="pin-input" id="pinInput" maxlength="4" autocomplete="off" />
-      <div class="pin-error" id="pinError" style="display:none;">Incorrect PIN</div>
-      <div class="modal-actions">
-        <button class="modal-cancel"  id="pinCancel">Cancel</button>
-        <button class="modal-confirm" id="pinConfirm">Confirm</button>
-      </div>
+<div class="confirm-overlay" id="confirmOverlay" style="display:none;">
+  <div class="confirm-box">
+    <div class="confirm-icon">🗑️</div>
+    <div class="confirm-title">Delete this order?</div>
+    <div class="confirm-sub" id="confirmSub">This will permanently remove the order from your session.</div>
+    <div class="confirm-btns">
+      <button class="confirm-cancel" id="confirmCancel">Keep It</button>
+      <button class="confirm-delete" id="confirmDelete">Yes, Delete</button>
     </div>
   </div>
+</div>
 
-  <!-- PDF generating overlay (hidden by default) -->
-  <div class="pdf-overlay" id="pdfOverlay" style="display:none;">
-    <div class="pdf-spinner"></div>
-    <div class="pdf-overlay-text" id="pdfOverlayText">GENERATING PDF...</div>
+<!-- PIN Modal -->
+
+<div class="modal-overlay" id="pinOverlay" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-eyebrow">AUTHORIZATION</div>
+    <div class="modal-title">Enter Manager PIN</div>
+    <input type="password" class="pin-input" id="pinInput" maxlength="4" autocomplete="off" />
+    <div class="pin-error" id="pinError" style="display:none;">Incorrect PIN</div>
+    <div class="modal-actions">
+      <button class="modal-cancel"  id="pinCancel">Cancel</button>
+      <button class="modal-confirm" id="pinConfirm">Confirm</button>
+    </div>
   </div>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script>
+<!-- PDF overlay -->
+
+<div class="pdf-overlay" id="pdfOverlay" style="display:none;">
+  <div class="pdf-spinner"></div>
+  <div class="pdf-overlay-text" id="pdfOverlayText">GENERATING PDF...</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
 "use strict";
 
-/* ── Config ──────────────────────────────────────────────── */
+/* ─── Config ────────────────────────────────────────────── */
 const BUSINESS_NAME = "LOS CANELOS MUNCHIES";
 const BUSINESS_ADDR = "4154 S Normandie Ave";
 const BUSINESS_CITY = "Los Angeles, CA 90037";
@@ -447,16 +607,21 @@ const SUMMARY_PIN   = "1997";
 const STORAGE_KEY   = "loscanelos_receipts";
 const LOGO_URL      = "https://i.ibb.co/vxHrGVKL/los-canelos-2.png";
 
+// visible:true → shown on register; visible:false → hidden
 const ITEMS = [
-  { id:"raspado",   name:"Raspado",      price:6.00,  img:"https://i.ibb.co/gZSPxhR1/raspado.png" },
-  { id:"water",     name:"Water Bottle", price:1.50,  img:"https://i.ibb.co/SXjNQBnx/water-bottle.png" },
-  { id:"tostiloko", name:"Tostiloko",    price:10.00, img:"https://i.ibb.co/Nhz268X/tosti.png" },
+  { id:"raspado",   name:"Raspado",      price:6.00,  visible:true,  img:"https://i.ibb.co/gZSPxhR1/raspado.png" },
+  { id:"water",     name:"Water Bottle", price:1.50,  visible:false, img:"https://i.ibb.co/SXjNQBnx/water-bottle.png" },
+  { id:"tostiloko", name:"Tostiloko",    price:10.00, visible:false, img:"https://i.ibb.co/Nhz268X/tosti.png" },
 ];
 
-/* ── State ───────────────────────────────────────────────── */
-let order = {}, receipts = [], payType = "cash", tendered = 0;
+/* ─── State ─────────────────────────────────────────────── */
+let order    = {};
+let receipts = [];
+let payType  = "cash";
+let tendered = 0;
+let pendingDeleteIdx = null;
 
-/* ── Storage ─────────────────────────────────────────────── */
+/* ─── Storage ───────────────────────────────────────────── */
 function saveToStorage() {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(receipts)); } catch(e) {}
 }
@@ -468,25 +633,25 @@ function loadFromStorage() {
   return false;
 }
 
-/* ── Leave warning ───────────────────────────────────────── */
 window.addEventListener("beforeunload", e => {
   if (receipts.length > 0) { e.preventDefault(); e.returnValue = "You have unsaved orders. Leave?"; }
 });
 
-/* ── Utilities ───────────────────────────────────────────── */
+/* ─── Utilities ─────────────────────────────────────────── */
 const fmt      = n  => "$" + n.toFixed(2);
 const now12h   = () => new Date().toLocaleTimeString("en-US", { hour:"numeric", minute:"2-digit", hour12:true });
 const nowFull  = () => new Date().toLocaleString("en-US", { month:"short", day:"numeric", year:"numeric", hour:"numeric", minute:"2-digit", hour12:true });
-const orderTotal = () => ITEMS.reduce((s, it) => s + (order[it.id] || 0) * it.price, 0);
+const orderTotal    = () => ITEMS.reduce((s, it) => s + (order[it.id] || 0) * it.price, 0);
+const sessionGrand  = () => receipts.reduce((s, r) => s + r.total, 0);
 
-/* ── Clock ───────────────────────────────────────────────── */
+/* ─── Clock ─────────────────────────────────────────────── */
 function tickClock() { const el = document.getElementById("clock"); if (el) el.textContent = now12h(); }
 setInterval(tickClock, 1000); tickClock();
 
-/* ── Render items ────────────────────────────────────────── */
+/* ─── Render register items (only visible ones) ─────────── */
 function renderItems() {
   const c = document.getElementById("itemsList"); c.innerHTML = "";
-  ITEMS.forEach(it => {
+  ITEMS.filter(it => it.visible).forEach(it => {
     const qty = order[it.id] || 0;
     const card = document.createElement("div");
     card.className = "item-card" + (qty > 0 ? " has-qty" : "");
@@ -510,7 +675,7 @@ function renderItems() {
   c.querySelectorAll(".ctrl-btn.minus").forEach(b => b.addEventListener("click", () => removeItem(b.dataset.id)));
 }
 
-/* ── Render totals ───────────────────────────────────────── */
+/* ─── Render order total / change / session bar ─────────── */
 function renderTotal() {
   const total = orderTotal();
   document.getElementById("totalAmount").textContent = fmt(total);
@@ -518,12 +683,17 @@ function renderTotal() {
   document.getElementById("btnReceipt").disabled  = receipts.length === 0;
   document.getElementById("btnSummary").disabled  = receipts.length === 0;
 
-  const badge = document.getElementById("orderBadge");
+  // Session bar
+  const bar = document.getElementById("sessionBar");
   if (receipts.length > 0) {
-    badge.textContent = `${receipts.length} completed order${receipts.length !== 1 ? "s" : ""} \u00B7 ${fmt(receipts.reduce((s,r) => s + r.total, 0))} total`;
-    badge.style.display = "block";
-  } else badge.style.display = "none";
+    bar.style.display = "flex";
+    document.getElementById("sessionBarTotal").textContent = fmt(sessionGrand());
+    document.getElementById("sessionBarSub").textContent   = `${receipts.length} order${receipts.length !== 1 ? "s" : ""} recorded`;
+  } else {
+    bar.style.display = "none";
+  }
 
+  // Change calculator
   const box = document.getElementById("changeBox");
   if (payType === "cash" && tendered > 0 && total > 0) {
     const diff = tendered - total;
@@ -531,26 +701,31 @@ function renderTotal() {
     box.classList.toggle("short", diff < 0);
     document.getElementById("changeLabel").textContent  = diff >= 0 ? "CHANGE DUE" : "AMOUNT SHORT";
     document.getElementById("changeAmount").textContent = fmt(Math.abs(diff));
-  } else box.style.display = "none";
+  } else {
+    box.style.display = "none";
+  }
 }
 
 function render() { renderItems(); renderTotal(); }
 
-/* ── Mutations ───────────────────────────────────────────── */
+/* ─── Order mutations ───────────────────────────────────── */
 function addItem(id)    { order[id] = (order[id] || 0) + 1; render(); }
 function removeItem(id) { if ((order[id] || 0) <= 1) delete order[id]; else order[id]--; render(); }
 function clearOrder()   { order = {}; tendered = 0; document.getElementById("tenderedInput").value = ""; highlightBill(null); render(); }
+
 function completeOrder() {
   const total = orderTotal(); if (total === 0) return;
   receipts.push({
     time: now12h(),
-    items: ITEMS.filter(it => order[it.id]).map(it => ({ name:it.name, qty:order[it.id], price:it.price, subtotal:order[it.id]*it.price })),
+    items: ITEMS.filter(it => order[it.id]).map(it => ({
+      name: it.name, qty: order[it.id], price: it.price, subtotal: order[it.id] * it.price
+    })),
     total, payType
   });
   saveToStorage(); clearOrder();
 }
 
-/* ── Pay type ────────────────────────────────────────────── */
+/* ─── Pay type ──────────────────────────────────────────── */
 function setPayType(type) {
   payType = type;
   document.getElementById("btnCash").classList.toggle("active",   type === "cash");
@@ -559,7 +734,7 @@ function setPayType(type) {
   renderTotal();
 }
 
-/* ── Bill buttons ────────────────────────────────────────── */
+/* ─── Bill buttons ──────────────────────────────────────── */
 function highlightBill(val) {
   document.querySelectorAll(".bill-btn").forEach(b => b.classList.toggle("active", b.dataset.val === String(val)));
 }
@@ -572,16 +747,176 @@ document.getElementById("tenderedInput").addEventListener("input", e => {
   tendered = parseFloat(e.target.value) || 0; highlightBill(null); renderTotal();
 });
 
-/* ── Action buttons ──────────────────────────────────────── */
+/* ─── Main buttons ──────────────────────────────────────── */
 document.getElementById("btnCash").addEventListener("click",     () => setPayType("cash"));
 document.getElementById("btnCredit").addEventListener("click",   () => setPayType("credit"));
 document.getElementById("btnClear").addEventListener("click",    clearOrder);
 document.getElementById("btnComplete").addEventListener("click", completeOrder);
-document.getElementById("btnReceipt").addEventListener("click",  () => generateReceiptPDF());
+document.getElementById("btnReceipt").addEventListener("click",  openEditPanel);
 document.getElementById("btnSummary").addEventListener("click",  openPinModal);
 document.getElementById("bannerDismiss").addEventListener("click", () => { document.getElementById("savedBanner").style.display = "none"; });
 
-/* ── PIN Modal ───────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════
+   EDIT ORDERS PANEL
+════════════════════════════════════════════════════════ */
+function openEditPanel() {
+  renderEditPanel();
+  document.getElementById("editPanel").classList.add("open");
+}
+function closeEditPanel() {
+  document.getElementById("editPanel").classList.remove("open");
+  render(); // refresh register totals after any edits
+}
+
+document.getElementById("editBackBtn").addEventListener("click", closeEditPanel);
+
+/* Recompute a single receipt's total from its items */
+function recalcReceipt(r) {
+  r.total = r.items.reduce((s, it) => s + it.subtotal, 0);
+}
+
+/* Render the full edit panel list + footer */
+function renderEditPanel() {
+  const list = document.getElementById("editOrdersList");
+  list.innerHTML = "";
+
+  document.getElementById("editPanelCount").textContent =
+    receipts.length ? `${receipts.length} order${receipts.length !== 1 ? "s" : ""}` : "";
+
+  if (receipts.length === 0) {
+    list.innerHTML = `<div class="edit-empty">No orders recorded yet.<br>Go back and record an order first.</div>`;
+  } else {
+    receipts.forEach((r, idx) => buildOrderCard(r, idx, list));
+  }
+
+  refreshEditFooter();
+}
+
+function refreshEditFooter() {
+  const grand = sessionGrand();
+  document.getElementById("editFooterTotal").textContent = fmt(grand);
+  document.getElementById("editFooterSub").textContent   = `${receipts.length} order${receipts.length !== 1 ? "s" : ""}`;
+  document.getElementById("editPanelCount").textContent  =
+    receipts.length ? `${receipts.length} order${receipts.length !== 1 ? "s" : ""}` : "";
+}
+
+function buildOrderCard(r, idx, container) {
+  const card = document.createElement("div");
+  card.className = "order-card";
+  card.dataset.idx = idx;
+
+  const payTag = r.payType === "cash"
+    ? `<span class="order-pay-tag cash">Cash</span>`
+    : `<span class="order-pay-tag credit">Zelle</span>`;
+
+  // Header
+  const header = document.createElement("div");
+  header.className = "order-card-header";
+  header.innerHTML = `
+    <span class="order-num">ORDER #${idx + 1}</span>
+    <span class="order-time">${r.time}</span>
+    ${payTag}
+    <button class="order-del-btn" title="Delete order" data-idx="${idx}">&#x2715;</button>`;
+  card.appendChild(header);
+  header.querySelector(".order-del-btn").addEventListener("click", () => confirmDelete(idx));
+
+  // Lines
+  const lines = document.createElement("div");
+  lines.className = "order-lines";
+  r.items.forEach((it, lineIdx) => {
+    const line = document.createElement("div");
+    line.className = "order-line";
+    line.innerHTML = `
+      <span class="order-line-name">${it.name}</span>
+      <div class="order-line-qty-ctrl">
+        <button class="oc-btn oc-minus" data-idx="${idx}" data-line="${lineIdx}">&#x2212;</button>
+        <span class="order-line-qty" id="lineQty-${idx}-${lineIdx}">${it.qty}</span>
+        <button class="oc-btn oc-plus"  data-idx="${idx}" data-line="${lineIdx}">+</button>
+      </div>
+      <span class="order-line-sub" id="lineSub-${idx}-${lineIdx}">${fmt(it.subtotal)}</span>`;
+    lines.appendChild(line);
+
+    line.querySelector(".oc-minus").addEventListener("click", () => editLineQty(idx, lineIdx, -1));
+    line.querySelector(".oc-plus").addEventListener("click",  () => editLineQty(idx, lineIdx, +1));
+  });
+  card.appendChild(lines);
+
+  // Footer
+  const footer = document.createElement("div");
+  footer.className = "order-card-footer";
+  footer.innerHTML = `
+    <span class="order-card-total-label">Order Total</span>
+    <span class="order-card-total-val" id="cardTotal-${idx}">${fmt(r.total)}</span>`;
+  card.appendChild(footer);
+
+  container.appendChild(card);
+}
+
+/* Adjust qty of a specific line in a receipt */
+function editLineQty(receiptIdx, lineIdx, delta) {
+  const r  = receipts[receiptIdx];
+  const it = r.items[lineIdx];
+
+  it.qty += delta;
+
+  if (it.qty <= 0) {
+    // Remove line
+    r.items.splice(lineIdx, 1);
+    if (r.items.length === 0) {
+      // Order has no items left — delete the whole order
+      receipts.splice(receiptIdx, 1);
+      saveToStorage();
+      renderEditPanel();
+      return;
+    }
+  } else {
+    it.subtotal = it.qty * it.price;
+  }
+
+  recalcReceipt(r);
+  saveToStorage();
+
+  // Patch DOM in-place for smoothness (re-render only if a line was removed)
+  if (delta < 0 && it.qty <= 0) {
+    renderEditPanel();
+  } else {
+    const qtyEl = document.getElementById(`lineQty-${receiptIdx}-${lineIdx}`);
+    const subEl = document.getElementById(`lineSub-${receiptIdx}-${lineIdx}`);
+    const totEl = document.getElementById(`cardTotal-${receiptIdx}`);
+    if (qtyEl) qtyEl.textContent = it.qty;
+    if (subEl) subEl.textContent = fmt(it.subtotal);
+    if (totEl) totEl.textContent = fmt(r.total);
+    refreshEditFooter();
+  }
+}
+
+/* ─── Delete confirm ────────────────────────────────────── */
+function confirmDelete(idx) {
+  pendingDeleteIdx = idx;
+  const r = receipts[idx];
+  document.getElementById("confirmSub").textContent =
+    `Order #${idx + 1} · ${r.time} · ${fmt(r.total)} — This cannot be undone.`;
+  document.getElementById("confirmOverlay").style.display = "flex";
+}
+function closeConfirm() {
+  document.getElementById("confirmOverlay").style.display = "none";
+  pendingDeleteIdx = null;
+}
+document.getElementById("confirmCancel").addEventListener("click", closeConfirm);
+document.getElementById("confirmDelete").addEventListener("click", () => {
+  if (pendingDeleteIdx === null) return;
+  receipts.splice(pendingDeleteIdx, 1);
+  saveToStorage();
+  closeConfirm();
+  renderEditPanel();
+});
+document.getElementById("confirmOverlay").addEventListener("click", e => {
+  if (e.target === document.getElementById("confirmOverlay")) closeConfirm();
+});
+
+/* ════════════════════════════════════════════════════════
+   PIN MODAL
+════════════════════════════════════════════════════════ */
 function openPinModal() {
   document.getElementById("pinInput").value = "";
   document.getElementById("pinError").style.display = "none";
@@ -603,25 +938,19 @@ function submitPin() {
 document.getElementById("pinCancel").addEventListener("click",  closePinModal);
 document.getElementById("pinConfirm").addEventListener("click", submitPin);
 document.getElementById("pinInput").addEventListener("keydown", e => { if (e.key === "Enter") submitPin(); });
-document.getElementById("pinOverlay").addEventListener("click", e => { if (e.target === document.getElementById("pinOverlay")) closePinModal(); });
+document.getElementById("pinOverlay").addEventListener("click", e => {
+  if (e.target === document.getElementById("pinOverlay")) closePinModal();
+});
 
-/* ── PDF loading overlay helpers ─────────────────────────── */
+/* ════════════════════════════════════════════════════════
+   PDF HELPERS
+════════════════════════════════════════════════════════ */
 function showPdfOverlay(msg) {
   document.getElementById("pdfOverlayText").textContent = msg || "GENERATING PDF...";
   document.getElementById("pdfOverlay").style.display = "flex";
 }
-function hidePdfOverlay() {
-  document.getElementById("pdfOverlay").style.display = "none";
-}
+function hidePdfOverlay() { document.getElementById("pdfOverlay").style.display = "none"; }
 
-/* ── PDF: trigger download directly (no popup needed) ────── */
-function downloadPDF(doc, filename) {
-  // doc.save() creates a direct file download — works on all browsers/devices
-  // including Safari on iOS and Chrome on Android without popup restrictions.
-  doc.save(filename);
-}
-
-/* ── Load image as base64 ────────────────────────────────── */
 function loadImgBase64(url) {
   return new Promise(resolve => {
     const img = new Image(); img.crossOrigin = "anonymous";
@@ -634,101 +963,25 @@ function loadImgBase64(url) {
       } catch(e) { resolve(null); }
     };
     img.onerror = () => resolve(null);
-    // Cache-bust to avoid CORS issues with cached opaque responses
     img.src = url + (url.includes("?") ? "&" : "?") + "cb=" + Date.now();
   });
 }
 
-/* ── Add logo to PDF ─────────────────────────────────────── */
 async function addLogoToPDF(doc, W, y) {
   const b64 = await loadImgBase64(LOGO_URL);
   if (!b64) return y;
   const imgEl = new Image(); imgEl.src = b64;
   await new Promise(r => { imgEl.onload = r; imgEl.onerror = r; });
   const ratio = imgEl.naturalHeight / (imgEl.naturalWidth || 1);
-  const drawW = Math.min(42, W - 10);
-  const drawH = drawW * ratio;
+  const drawW = Math.min(42, W - 10), drawH = drawW * ratio;
   doc.addImage(b64, "PNG", (W - drawW) / 2, y, drawW, drawH);
   return y + drawH + 3;
 }
 
-/* ── Receipt List PDF ────────────────────────────────────── */
-async function generateReceiptPDF() {
-  if (!window.jspdf) { alert("PDF engine not ready. Please wait a moment and try again."); return; }
-
-  showPdfOverlay("GENERATING RECEIPT...");
-
-  try {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF({ unit:"mm", format:[80, 297] });
-    const W = 80; let y = 6;
-
-    const center = (txt, size, bold = false) => {
-      doc.setFontSize(size); doc.setFont("courier", bold ? "bold" : "normal");
-      doc.text(txt, W / 2, y, { align:"center" }); y += size * 0.45 + 1;
-    };
-    const dashes = () => {
-      doc.setLineDash([1, 1.2]); doc.setDrawColor(150, 150, 150);
-      doc.line(4, y, W - 4, y); y += 3;
-    };
-    const row = (left, right, size = 8, bold = false) => {
-      doc.setFontSize(size); doc.setFont("courier", bold ? "bold" : "normal");
-      doc.text(String(left), 6, y); doc.text(String(right), W - 6, y, { align:"right" });
-      y += size * 0.45 + 1.4;
-    };
-
-    y = await addLogoToPDF(doc, W, y); y += 1;
-    center(BUSINESS_NAME, 9, true);
-    center(BUSINESS_ADDR, 7);
-    center(BUSINESS_CITY, 7);
-    center(nowFull(), 7);
-    y += 1; dashes();
-    center("** PREVIEW  \u2014  NOT FINAL **", 7); y += 1;
-    center("RECEIPT LIST", 9, true); y += 1; dashes();
-
-    center("TRANSACTIONS", 8, true); y += 0.5;
-    receipts.forEach((r, i) => row(`#${i + 1}  ${r.time}`, fmt(r.total), 7.5));
-    y += 1; dashes();
-
-    row("ITEM", "TOTAL", 8, true); dashes();
-    const allItems = {};
-    receipts.forEach(r => r.items.forEach(it => {
-      if (!allItems[it.name]) allItems[it.name] = { qty:0, total:0, price:it.price };
-      allItems[it.name].qty += it.qty; allItems[it.name].total += it.subtotal;
-    }));
-    Object.entries(allItems).forEach(([name, d]) => {
-      row(name, "", 8); row(`  ${d.qty} x ${fmt(d.price)}`, fmt(d.total), 7.5);
-    });
-    dashes();
-    row("TOTAL", fmt(receipts.reduce((s, r) => s + r.total, 0)), 9, true);
-    y += 2; dashes();
-    center(`${receipts.length} transaction(s)`, 7);
-
-    // Diagonal watermark
-    doc.saveGraphicsState();
-    doc.setGState(new doc.GState({ opacity: 0.09 }));
-    doc.setFontSize(19); doc.setFont("courier", "bold"); doc.setTextColor(180, 0, 0);
-    doc.text("PREVIEW ONLY", W / 2, 140, { align:"center", angle:45 });
-    doc.text("PREVIEW ONLY", W / 2, 210, { align:"center", angle:45 });
-    doc.restoreGraphicsState(); doc.setTextColor(0, 0, 0);
-
-    // ← KEY FIX: download as file instead of opening in new tab
-    const dateStr = new Date().toLocaleDateString("en-US",{month:"2-digit",day:"2-digit",year:"2-digit"}).replace(/\//g,"-");
-    downloadPDF(doc, `receipt-list-${dateStr}.pdf`);
-
-  } catch(err) {
-    alert("PDF generation failed: " + err.message);
-  } finally {
-    hidePdfOverlay();
-  }
-}
-
-/* ── Summary PDF ─────────────────────────────────────────── */
+/* ─── Summary PDF ───────────────────────────────────────── */
 async function generateSummaryPDF() {
-  if (!window.jspdf) { alert("PDF engine not ready. Please wait a moment and try again."); return; }
-
+  if (!window.jspdf) { alert("PDF engine not ready."); return; }
   showPdfOverlay("GENERATING SUMMARY...");
-
   try {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF({ unit:"mm", format:[80, 297] });
@@ -749,50 +1002,41 @@ async function generateSummaryPDF() {
     };
 
     y = await addLogoToPDF(doc, W, y); y += 1;
-    center(BUSINESS_NAME, 9, true);
-    center(BUSINESS_ADDR, 7);
-    center(BUSINESS_CITY, 7);
+    center(BUSINESS_NAME, 9, true); center(BUSINESS_ADDR, 7); center(BUSINESS_CITY, 7);
     y += 1; center("DAILY SETTLEMENT", 10, true); center(nowFull(), 7);
     y += 1; dashes(); center("AUTHORIZED SUMMARY", 8, true); dashes();
-
     row("TIME", "AMT    TYPE", 7.5, true); dashes();
     receipts.forEach((r, i) => {
       row(`#${i + 1}  ${r.time}`, `${fmt(r.total)}  ${r.payType === "cash" ? "CASH" : "CRD "}`, 7.5);
     });
     dashes();
-
     const cashTotal   = receipts.filter(r => r.payType === "cash").reduce((s, r) => s + r.total, 0);
     const creditTotal = receipts.filter(r => r.payType === "credit").reduce((s, r) => s + r.total, 0);
-    y += 1;
-    row("Cash Payments",   fmt(cashTotal),   8);
-    row("Credit Payments", fmt(creditTotal), 8);
+    y += 1; row("Cash Payments", fmt(cashTotal), 8); row("Credit Payments", fmt(creditTotal), 8);
     y += 1; dashes();
-
     doc.setFontSize(9.5); doc.setFont("courier", "bold");
-    doc.text("TOTAL PAYMENTS", 6, y);
-    doc.text(fmt(cashTotal + creditTotal), W - 6, y, { align:"right" });
+    doc.text("TOTAL PAYMENTS", 6, y); doc.text(fmt(cashTotal + creditTotal), W - 6, y, { align:"right" });
     y += 8; dashes();
     center(`${receipts.length} transaction(s)`, 7);
     y += 2; center("END OF DAY", 8, true);
     y += 2; center("Authorized: ________________", 7);
 
-    // ← KEY FIX: download as file instead of opening in new tab
-    const dateStr = new Date().toLocaleDateString("en-US",{month:"2-digit",day:"2-digit",year:"2-digit"}).replace(/\//g,"-");
-    downloadPDF(doc, `daily-summary-${dateStr}.pdf`);
-
+    const dateStr = new Date().toLocaleDateString("en-US", { month:"2-digit", day:"2-digit", year:"2-digit" }).replace(/\//g, "-");
+    doc.save(`daily-summary-${dateStr}.pdf`);
   } catch(err) {
-    alert("PDF generation failed: " + err.message);
+    alert("PDF error: " + err.message);
   } finally {
     hidePdfOverlay();
   }
 }
 
-/* ── Init ────────────────────────────────────────────────── */
+/* ─── Init ──────────────────────────────────────────────── */
 (function init() {
   if (loadFromStorage()) document.getElementById("savedBanner").style.display = "flex";
   setPayType("cash");
   render();
 })();
-  </script>
+</script>
+
 </body>
 </html>
