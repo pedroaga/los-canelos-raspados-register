@@ -61,7 +61,7 @@ body { max-width:480px; margin:0 auto; padding-bottom:60px; }
 .header-label { font-size:8px; letter-spacing:2.5px; color:var(--red); text-transform:uppercase; font-weight:500; }
 .header-title { font-size:11px; font-weight:500; color:#111; letter-spacing:0.2px; line-height:1.2; }
 .header-center { justify-self:center; }
-.header-logo  { height:52px; width:auto; max-width:160px; object-fit:contain; display:block; }
+.header-logo  { height:60px; width:auto; max-width:160px; object-fit:contain; display:block; }
 .header-right { justify-self:end; font-size:12px; color:var(--text-muted); white-space:nowrap; }
 
 /* ═══════════════════════════════════════
@@ -71,7 +71,7 @@ body { max-width:480px; margin:0 auto; padding-bottom:60px; }
   display:flex; align-items:center; justify-content:space-between;
   margin:12px 16px 0; padding:9px 14px;
   background:rgba(10,158,92,0.07); border:1px solid rgba(10,158,92,0.3);
-  border-radius:10px; font-size:11px; color:var(--green);
+  border-radius:7px; font-size:11px; color:var(--green);
 }
 .banner-dismiss { background:none; border:none; color:var(--green); cursor:pointer; font-size:14px; opacity:.5; padding:0 2px; }
 .banner-dismiss:hover { opacity:1; }
@@ -108,8 +108,8 @@ body { max-width:480px; margin:0 auto; padding-bottom:60px; }
 }
 .item-info { flex:1; min-width:0; }
 .item-name     { font-size:14px; font-weight:500; color:var(--text); }
-.item-price    { font-size:11px; color:var(--text-muted); margin-top:3px; }
-.item-subtotal { font-size:11px; color:var(--red); margin-top:3px; font-weight:500; }
+.item-price    { font-size:12.5px; color:var(--text-muted); margin-top:3px; }
+.item-subtotal { font-size:12.5px; color:var(--red); margin-top:3px; font-weight:500; }
 .item-controls { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 .ctrl-btn {
   width:33px; height:33px; border-radius:50%; border:none;
@@ -119,9 +119,9 @@ body { max-width:480px; margin:0 auto; padding-bottom:60px; }
   transition:opacity .1s,transform .1s;
 }
 .ctrl-btn:active { transform:scale(.88); opacity:.75; }
-.ctrl-btn.minus { background:#888; }
-.ctrl-btn.plus  { background:var(--red); }
-.ctrl-btn.plus:hover { background:var(--red-light); }
+.ctrl-btn.minus { background:red; }
+.ctrl-btn.plus  { background:green; }
+.ctrl-btn.plus:hover { background:green; }
 
 /* ═══════════════════════════════════════
    TOTAL BOX
@@ -133,7 +133,7 @@ body { max-width:480px; margin:0 auto; padding-bottom:60px; }
   box-shadow:0 1px 4px rgba(0,0,0,0.05);
 }
 .total-row   { display:flex; justify-content:space-between; align-items:center; }
-.total-label { font-size:10px; letter-spacing:2px; color:var(--text-muted); text-transform:uppercase; }
+.total-label { font-size:12px; letter-spacing:2px; color:var(--text-muted); text-transform:uppercase; }
 .total-amount{ font-size:32px; font-weight:500; color:var(--text); letter-spacing:0.5px; }
 
 .pay-toggle { display:flex; gap:8px; margin-top:12px; }
@@ -480,7 +480,7 @@ body { max-width:480px; margin:0 auto; padding-bottom:60px; }
 
 <!-- Restore banner -->
 <div class="saved-banner" id="savedBanner" style="display:none;">
-  <span>&#128190; Session restored from last visit</span>
+  <span>&#128190; Syncing Data... </span>
   <button class="banner-dismiss" id="bannerDismiss">&#x2715;</button>
 </div>
 
@@ -563,11 +563,11 @@ body { max-width:480px; margin:0 auto; padding-bottom:60px; }
 <div class="confirm-overlay" id="confirmOverlay" style="display:none;">
   <div class="confirm-box">
     <div class="confirm-icon">🗑️</div>
-    <div class="confirm-title">Delete this order?</div>
-    <div class="confirm-sub" id="confirmSub">This will permanently remove the order from your session.</div>
+    <div class="confirm-title">WATCH OUT BITCH ASS HOE</div>
+    <div class="confirm-sub" id="confirmSub">You sure? This will delete this record from your receipt list.</div>
     <div class="confirm-btns">
-      <button class="confirm-cancel" id="confirmCancel">Keep It</button>
-      <button class="confirm-delete" id="confirmDelete">Yes, Delete</button>
+      <button class="confirm-cancel" id="confirmCancel">Nah</button>
+      <button class="confirm-delete" id="confirmDelete">Delete</button>
     </div>
   </div>
 </div>
@@ -576,7 +576,7 @@ body { max-width:480px; margin:0 auto; padding-bottom:60px; }
 <div class="modal-overlay" id="pinOverlay" style="display:none;">
   <div class="modal-box">
     <div class="modal-eyebrow">AUTHORIZATION</div>
-    <div class="modal-title">Enter Manager PIN</div>
+    <div class="modal-title">Enter PIN or Shake Some Ass</div>
     <input type="password" class="pin-input" id="pinInput" maxlength="4" autocomplete="off" />
     <div class="pin-error" id="pinError" style="display:none;">Incorrect PIN</div>
     <div class="modal-actions">
